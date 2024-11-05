@@ -19,6 +19,10 @@ object Main {
     gameMenu()
   }
 
+
+  // head and tail recursion (tailrec and headrec)
+  // @headrec -> less common because it is harder to optimize, it involves doing some operations before making the recursive call
+  // @tailrec -> last operation in function
   // Menu System
   @tailrec
   private def gameMenu(): Unit = {
@@ -185,7 +189,7 @@ object Main {
 
   // Saving game progress
   private def saveGameProgress(): Unit = {
-    val pw = new PrintWriter(new File("C:\\Users\\pc\\Desktop\\Hangman\\savedGame.json"))
+    val pw = new PrintWriter(new File("savedGame1.json"))
     pw.write(s"""{
                 |"currentPlayer": "$currentPlayer",
                 |"wordToGuess": "$wordToGuess",
@@ -198,13 +202,14 @@ object Main {
 
   // Continuing saved game
   private def continueGame(): Unit = {
-    val savedGame = Source.fromFile("C:\\Users\\pc\\Desktop\\Hangman\\savedGame.json").getLines.mkString
+    val savedGame = Source.fromFile("savedGame1.json").getLines.mkString
     val data = ujson.read(savedGame)
     currentPlayer = data("currentPlayer").str
     wordToGuess = data("wordToGuess").str
     attemptsLeft = data("attemptsLeft").num.toInt
     guessedLetters = data("guessedLetters").str.toSet
     println(s"Continuing game for $currentPlayer...")
+    //savedGame.close();
 
     playGame()
   }
