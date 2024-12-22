@@ -10,14 +10,6 @@ Hangman is a timeless word-guessing game that challenges players to guess a hidd
 - **Save and Resume**: Players can save their progress and continue the game later.
 - **Interactive Interface**: Displays the current state of the word and dynamic hangman stages.
 
-## Research
-To develop this project, various implementations of Hangman in other programming languages were studied:
-- **Python**: Console-based games focusing on simplicity and readability.
-- **Java**: Object-Oriented Programming with GUI enhancements using Swing or JavaFX.
-- **JavaScript**: Web-based implementations with HTML and CSS for interactivity.
-- **C++**: Console-based games emphasizing memory management and control flow.
-- **Scala**: Leveraging functional programming concepts like recursion and immutability.
-
 ## Learning Outcomes
 This project provided a valuable learning experience in:
 - Functional programming and recursion in Scala.
@@ -36,8 +28,3 @@ This project provided a valuable learning experience in:
 - [TutorialsPoint: Scala Functional Programming](https://www.tutorialspoint.com)
 - [GitHub: Open-Source Hangman Projects](https://github.com)
 - [Medium: Tips for Building Command-Line Games](https://medium.com)
-
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
