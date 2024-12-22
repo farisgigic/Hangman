@@ -42,6 +42,7 @@ object Main {
       case _ => println("Invalid choice! Please choose again."); gameMenu()
     }
   }
+
   private def close(): Unit = {
     println("Program is closing !")
     System.exit(0)
