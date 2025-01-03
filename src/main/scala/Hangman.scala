@@ -18,6 +18,13 @@ object Hangman {
     println(Console.BLUE + "Welcome to Hangman Game!" + Console.RESET)
     gameMenu()
   }
+  // @tailrec annotation is used for tail-recursive functions
+  // tail-recursive function is function where the LAST operation in the function is recursive call
+  // @tailrec is used to tell compiler to issue an error if the function is not tail-recursive
+  // tail recursion appears only and only if the function calls itself
+  // -> gameMenu() is tail recursive that it returns Unit(not Int, String,..)
+  // -> gameMenu() is tail recursive is because recursive call is the last operation is case_ branch
+  // -> gameMenu() is tail recursive because no computations are after the recursive call
 
   @tailrec
   private def gameMenu(): Unit = {
@@ -192,6 +199,7 @@ object Hangman {
       isMultiplayer = lines(4).toBoolean
       println(Console.GREEN + s"Welcome back, $currentPlayer!" + Console.RESET)
       playGame()
+
     } catch {
       case _: Exception => println("No saved game found."); gameMenu()
     }
@@ -214,15 +222,5 @@ object Hangman {
     writer.close()
   }
 
-  private def loadScoreboard(): Unit = {
-    try {
-      val lines = Source.fromFile("scoreboard.json").getLines()
-      playerScores = lines.map { line =>
-        val Array(player, score) = line.split(",")
-        player -> score.toInt
-      }.toMap.withDefaultValue(0)
-    } catch {
-      case _: Exception => println("No previous scores found.")
-    }
-  }
+
 }
