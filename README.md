@@ -45,7 +45,7 @@ Welcome to the **Hangman Game**—a text-based word-guessing game where players 
 - Eye-catching UI with ASCII art hangman visuals.
 
 ## 🛠️ Technologies Used
-- **Programming Language**: Assigned language (Rust, Go, Ruby, Scala, Perl, etc.).
+- **Programming Language**: Scala
 - Libraries and packages specific to the assigned language for:
   - Random word generation.
   - File handling (JSON).
