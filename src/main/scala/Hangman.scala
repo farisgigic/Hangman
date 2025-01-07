@@ -11,7 +11,7 @@ object Hangman {
   private var guessedLetters = Set[Char]()
   private var currentPlayer = ""
   private var playerScores = Map[String, Int]().withDefaultValue(0)
-  private var isMultiplayer = false
+  private var isMultiplayer = false§
   private val wordsList = List("programming", "semestar", "scala", "randomize", "bucapotok", "functional", "language")
 
   def main(args: Array[String]): Unit = {
@@ -182,10 +182,21 @@ object Hangman {
   }
 
   private def saveGame(): Unit = {
-    val saveData = s"$currentPlayer\n$wordToGuess\n$attemptsLeft\n${guessedLetters.mkString("")}\n$isMultiplayer"
-    val writer = new PrintWriter(new File("savedGame.json"))
-    writer.write(saveData)
-    writer.close()
+    val filePath = "savedGame.json"
+    val saveData = Seq(
+      currentPlayer,
+      wordToGuess,
+      attemptsLeft.toString,
+      guessedLetters.mkString(""),
+      isMultiplayer.toString
+    ).mkString("\n")
+
+    val writer = new PrintWriter(new File(filePath))
+    try {
+      writer.write(saveData)
+    } finally {
+      writer.close()
+    }
     println("Game saved!")
   }
 
