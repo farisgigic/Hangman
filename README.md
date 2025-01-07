@@ -56,4 +56,4 @@ Welcome to the **Hangman Game**—a text-based word-guessing game where players 
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/farisgigic/Hangman.git
-   cd hangman-game
+   cd Hangman
