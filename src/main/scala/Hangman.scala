@@ -215,11 +215,15 @@ object Hangman {
   }
 
   private def saveScoreboard(): Unit = {
-    val writer = new PrintWriter(new File("scoreboard.json"))
-    playerScores.foreach { case (player, score) =>
-      writer.write(s"$player,$score\n")
+    val filePath = "scoreboard.json"
+    val content = playerScores.map { case (player, score) => s"$player,$score" }.mkString("\n")
+
+    val writer = new PrintWriter(new File(filePath))
+    try {
+      writer.write(content)
+    } finally {
+      writer.close()
     }
-    writer.close()
   }
 
 
