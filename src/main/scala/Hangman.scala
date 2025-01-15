@@ -11,7 +11,7 @@ object Hangman {
   private var guessedLetters = Set[Char]()
   private var currentPlayer = ""
   private var playerScores = Map[String, Int]().withDefaultValue(0)
-  private var isMultiplayer = false§
+  private var isMultiplayer = false
   private val wordsList = List("programming", "semestar", "scala", "randomize", "bucapotok", "functional", "language")
 
   def main(args: Array[String]): Unit = {
